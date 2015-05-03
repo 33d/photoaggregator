@@ -1,0 +1,12 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    libxml-ruby (2.8.0)
+    ratom (0.9.0)
+      libxml-ruby (~> 2.6)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  ratom (~> 0.9.0)
