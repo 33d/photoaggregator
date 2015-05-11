@@ -17,6 +17,16 @@ module ImageFeed
       end
     end
 
+    def self.get_album_images(urls, since, http=nil)
+      since = since.rfc2822
+      http = http || Net::HTTP::new(URI('http://www.imgur.com/'))
+      urls.inject([]) do |results, url|
+        response = http.head URI(url).path, { 'If-Modified-Since' => since }
+        response.code == '200' && (results << url)
+        results
+      end
+    end
+
   end
 
 end
